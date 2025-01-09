@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metis Center for Psychological Services</title>
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f8f8; /* Light background */
+        }
+
+        /* Container for Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            background-color: #914547;
+            /* Textured Gradient */
+            background-image: linear-gradient(135deg, rgba(145, 69, 71, 0.8) 0%, rgba(122, 59, 61, 0.8) 100%), url("https://images.unsplash.com/photo-1576091160550-2173dba999ef?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1NjIzMDV8MHwxfHNlYXJjaHw0fHx0aGVyYXB5fGVufDB8fHx8MTcxMjA3MTYyNHww&ixlib=rb-4.0.3&q=80&w=1080"); /* Replace with your preferred image */
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+        }
+
+        .hero-image-placeholder {
+            width: 100%;
+            height: 400px;
+            background-color: transparent;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+        .hero-image-placeholder img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #f7d7c4; /* Complementary color */
+            color: #914547;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            margin: 0 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .cta-button:hover {
+            background-color: #e8c5b1;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+        }
+
+        .cta-button.secondary {
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .cta-button.secondary:hover {
+            background-color: white;
+            color: #914547;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+        }
+
+        /* --- Services Section --- */
+        .services {
+            padding: 80px 0;
+            background-color: #fff;
+        }
+
+        .services h2 {
+            text-align: center;
+            margin-bottom: 4rem;
+            font-size: 2.5rem;
+            color: #914547; /* Use the primary color for headings */
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .service-item {
+            text-align: center;
+            padding: 30px;
+            border-radius: 8px;
+            background-color: #f7f2ec; /* Light, textured background */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background-color: #f7d7c4; /* Complementary color */
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .service-icon img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .service-item h3 {
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+            color: #914547;
+        }
+
+        .service-item .cta-button {
+            margin-top: 20px;
+        }
+
+        /* --- Why Choose Us Section --- */
+        .why-choose-us {
+            background-color: #f8f8f8;
+            padding: 80px 0;
+        }
+
+        .why-choose-us h2 {
+            text-align: center;
+            margin-bottom: 4rem;
+            font-size: 2.5rem;
+            color: #914547;
+        }
+
+        .usp-section {
+            display: flex;
+            align-items: center;
+            margin-bottom: 60px;
+        }
+
+        .usp-section:nth-child(odd) {
+            flex-direction: row-reverse;
+        }
+
+        .usp-text {
+            flex: 1;
+            padding: 0 30px;
+        }
+
+        .usp-image-placeholder {
+            flex: 1;
+            width: 100%;
+            height: 350px;
+            background-color: transparent;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .usp-image-placeholder img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .usp-text h3 {
+            font-size: 1.7rem;
+            margin-bottom: 1rem;
+            color: #914547;
+        }
+
+        .usp-text .cta-button {
+            margin-top: 1rem;
+        }
+
+        /* --- Testimonials Section --- */
+        .testimonials {
+            background-color: #fff;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .testimonials h2 {
+            margin-bottom: 4rem;
+            font-size: 2.5rem;
+            color: #914547;
+        }
+
+        .testimonial {
+            padding: 30px;
+            margin-bottom: 40px;
+            border-radius: 8px;
+            background-color: #f8f8f8;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            font-style: italic;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .testimonial:hover {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        .testimonial-author {
+            margin-top: 20px;
+            font-weight: bold;
+            color: #914547;
+        }
+
+        /* --- Locations Section --- */
+        .locations {
+            background-color: #f8f8f8;
+            padding: 80px 0;
+        }
+
+        .locations h2 {
+            text-align: center;
+            margin-bottom: 4rem;
+            font-size: 2.5rem;
+            color: #914547;
+        }
+
+        .location-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .location-item {
+            text-align: center;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding-bottom: 2rem;
+            background-color: #fff;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .location-item:hover {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        .location-map-placeholder {
+            width: 100%;
+            height: 250px;
+            background-color: transparent;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .location-map-placeholder img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: #7a3b3d;
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        footer h2 {
+            margin-bottom: 2rem;
+            font-size: 2rem;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .footer-content form {
+            width: 100%;
+            max-width: 500px;
+            margin-bottom: 2rem;
+        }
+
+        .footer-content form input,
+        .footer-content form textarea {
+            width: 100%;
+            padding: 0.5rem;
+            margin: 0.5rem 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .footer-content .cta-button {
+            width: fit-content;
+        }
+    </style>
+</head>
+<body>
+    <header class="hero">
+        <div class="container hero-content">
+            <h1>Headline Option A</h1>
+            <p>Subheadline Option A</p>
+            <div class="hero-image-placeholder">
+                <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1NjIzMDV8MHwxfHNlYXJjaHw0fHx0aGVyYXB5fGVufDB8fHx8MTcxMjA3MTYyNHww&ixlib=rb-4.0.3&q=80&w=1080" alt="Therapy concept">
+            </div>
+            <a href="#contact" class="cta-button">Schedule a Consultation</a>
+            <a href="#services" class="cta-button secondary">Learn About Our Services</a>
+        </div>
+    </header>
+
+    <section class="services">
+        <div class="container">
+            <h2>Comprehensive Mental Health Services for a Healthier You</h2>
+            <div class="services-grid">
+                <div class="service-item">
+                    <div class="service-icon">
+                        <img src="https://images.unsplash.com/photo-1623874514711-0f321325f318?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1NjIzMDV8MHwxfHNlYXJjaHwxMHx8Y291bnNlbGluZ3xlbnwwfHx8fDE3MTIwNzE4MDB8MA&ixlib=rb-4.0.3&q=80&w=1080" alt="Counseling">
+                    </div>
+                    <h3>Feeling Overwhelmed or Stressed?</h3>
+                    <p>Our compassionate therapists provide individual, couples, and family counseling to help you navigate life's challenges, both in-person and online.</p>
+                    <a href="#counseling" class="cta-button">Learn More About Counseling</a>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon">
+                        <img src="https://images.unsplash.com/photo-1618477388954-7852f32655ec?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1NjIzMDV8MHwxfHNlYXJjaHwzfHxhc3Nlc3NtZW50fGVufDB8fHx8MTcxMjA3MTg1N3ww&ixlib=rb-4.0.3&q=80&w=1080" alt="Assessment">
+                    </div>
+                    <h3>Need Clarity and Direction?</h3>
+                    <p>Our comprehensive psychological assessments, including ADHD and autism testing, provide valuable insights for personalized treatment planning.</p>
+                    <a href="#assessment" class="cta-button">Discover Our Assessment Services</a>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon">
+                        <img src="https://images.unsplash.com/photo-1621574549346-d5d8c76b7b7d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1NjIzMDV8MHwxfHNlYXJjaHw1fHxtZWRpY2F0aW9ufGVufDB8fHx8MTcxMjA3MTg4Nnww&ixlib=rb-4.0.3&q=80&w=1080" alt="Medication Management">
+                    </div>
+                    <h3>Looking for Coordinated Care?</h3>
+                    <p>Our psychiatric nurse practitioners work alongside your therapist to provide medication management, ensuring seamless and convenient care. We accept most insurance.</p>
+                    <a href="#medication" class="cta-button">Explore Medication Management</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="why-choose-us">
+        <div class="container">
+            <h2>The Metis Center Difference: Experience, Compassion, Results</h2>
+            <div class="usp-section">
+                <div class="usp-text">
+                    <h3>Care That Fits Your Life: In-Person, Online, or Hybrid</h3>
+                    <p>We understand that life is busy. That's why we offer flexible options to meet your needs. Choose from in-person sessions at our welcoming offices in Lafayette or Durango, convenient online therapy from anywhere in Colorado, or a blended approach.</p>
+                    <a href="#flexibility" class="cta-button">Learn About Our Approach</a>
+                </div>
+                <div class="usp-image-placeholder">
+                    <img src="https://images.unsplash.com/photo-1577968897967-c5a7dca27c5a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1NjIzMDV8MHwxfHNlYXJjaHwzfHxmbGV4
+
+				</div>
+            </div>
+            <div class="usp-section">
+                <div class="usp-image-placeholder">
+                    <img src="https://images.unsplash.com/photo-1620844549503-bc854d14d9f6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1NjIzMDV8MHwxfHNlYXJjaHwyfHx0ZWFtfGVufDB8fHx8MTcxMjA3MTk3Nnww&ixlib=rb-4.0.3&q=80&w=1080" alt="Team of Professionals">
+                </div>
+                <div class="usp-text">
+                    <h3>Meet Our Highly Qualified Team of Mental Health Professionals</h3>
+                    <p>Our team consists of licensed psychologists, therapists, and psychiatric nurse practitioners with extensive experience in various areas of mental health. We are dedicated to ongoing training and providing evidence-based care.</p>
+                    <a href="#team" class="cta-button">Meet Our Team</a>
+                </div>
+            </div>
+            <div class="usp-section">
+                <div class="usp-text">
+                    <h3>All Your Mental Health Needs Under One Roof</h3>
+                    <p>Unlike app-based services, we offer a full spectrum of care, including counseling, medication management, and psychological assessment. This integrated approach allows for better coordination, communication, and ultimately, better outcomes for you.</p>
+                    <a href="#comprehensive" class="cta-button">Explore Our Services</a>
+                </div>
+                <div class="usp-image-placeholder">
+                    <img src="https://images.unsplash.com/photo-1498758536662-35b82cd15e29?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1NjIzMDV8MHwxfHNlYXJjaHwxfHxpbnRlZ3JhdGlvbnxlbnwwfHx8fDE3MTIwNzIwMjJ8MA&ixlib=rb-4.0.3&q=80&w=1080" alt="Integration of Services">
+                </div>
+            </div>
+            <div class="usp-section">
+                <div class="usp-image-placeholder">
+                    <img src="https://images.unsplash.com/photo-1453847668862-487637052f8a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1NjIzMDV8MHwxfHNlYXJjaHw0fHxhZmZvcmRhYmxlfGVufDB8fHx8MTcxMjA3MjA1N3ww&ixlib=rb-4.0.3&q=80&w=1080" alt="Affordable Care">
+                </div>
+                <div class="usp-text">
+                    <h3>Quality Mental Health Care That's Accessible and Affordable</h3>
+                    <p>We believe that everyone deserves access to quality mental health care. That's why we are in-network with most major insurance providers, making therapy more affordable and reducing financial stress.</p>
+                    <a href="#insurance" class="cta-button">Learn More About Insurance</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <div class="container">
+            <h2>Hear From Those We've Helped</h2>
+            <div class="testimonial">
+                <p>"Testimonial 1 text here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."</p>
+                <p class="testimonial-author">- Client Name (or Initials)</p>
+            </div>
+            <div class="testimonial">
+                <p>"Testimonial 2 text here. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."</p>
+                <p class="testimonial-author">- Client Name (or Initials)</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="locations">
+        <div class="container">
+            <h2>Conveniently Located in Lafayette and Durango to Serve You</h2>
+            <div class="location-grid">
+                <div class="location-item">
+                    <div class="location-map-placeholder">
+                        <img src="https://images.unsplash.com/photo-1546791755-976d93917f57?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1NjIzMDV8MHwxfHNlYXJjaHwxfHxsYWZheWV0dGUlMjBjb2xvcmFkb3xlbnwwfHx8fDE3MTIwNzI0MzV8MA&ixlib=rb-4.0.3&q=80&w=1080" alt="Lafayette Location">
+                    </div>
+                    <p>Lafayette Address</p>
+                    <p>Phone Number</p>
+                    <a href="#directions-lafayette" class="cta-button">Get Directions to Lafayette Office</a>
+                </div>
+                <div class="location-item">
+                    <div class="location-map-placeholder">
+						<img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1NjIzMDV8MHwxfHNlYXJjaHw0fHx0aGVyYXB5fGVufDB8fHx8MTcxMjA3MTYyNHww&ixlib=rb-4.0.3&q=80&w=1080" alt="Therapy concept">
+                    </div>
+                    <p>Durango Address</p>
+                    <p>Phone Number</p>
+                    <a href="#directions-durango" class="cta-button">Get Directions to Durango Office</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-content">
+            <h2>Take the First Step Towards a Brighter Future. Contact Us Today.</h2>
+            <form action="#" method="post">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" placeholder="Your Message" required></textarea>
+                <button type="submit" class="cta-button">Submit</button>
+            </form>
+            <p>Phone Number</p>
+            <a href="#blog" class="cta-button secondary">Explore Our Blog</a>
+        </div>
+    </footer>
+</body>
+</html>
