@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metis Center for Psychological Services</title>
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif; /* Different font family */
+            line-height: 1.7;
+            color: #222; /* Darker text color */
+            background-color: #f4f0e8; /* Soft, warm background */
+        }
+
+        /* Container for Content */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        /* --- Header/Hero --- */
+        .header {
+            background-color: transparent;
+            padding: 30px 0;
+            position: relative;
+            z-index: 10;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-placeholder {
+            width: 150px;
+            height: 50px;
+            background-color: #ddd;
+            border-radius: 5px;
+        }
+
+        .main-nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        .main-nav li {
+            margin-left: 30px;
+        }
+
+        .main-nav a {
+            text-decoration: none;
+            color: #4a2f20; /* Darker link color */
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .main-nav a:hover {
+            color: #914547; /* Burgundy on hover */
+        }
+
+        .hero {
+            background-image: url("https://images.unsplash.com/photo-1516937941249-5d57d7327d7c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1NjIzMDV8MHwxfHNlYXJjaHw0fHxwYXN0ZWwlMjBjb2xvcnN8ZW58MHx8fHwxNzEyMDc3MDk5fDA&ixlib=rb-4.0.3&q=80&w=1080");
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            padding: 120px 0 100px;
+            color: #4a2f20;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(244, 240, 232, 0.8); /* Overlay */
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 5;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.8;
+        }
+
+        .hero .cta-button {
+            margin: 0 15px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #914547;
+            color: white;
+            padding: 18px 35px;
+            text-decoration: none;
+            border-radius: 50px; /* Pill shape */
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-button:hover {
+            background-color: #7a3b3d;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
+        }
+
+        .cta-button.secondary {
+            background-color: transparent;
+            color: #4a2f20;
+            border: 2px solid #4a2f20;
+        }
+
+        .cta-button.secondary:hover {
+            background-color: #4a2f20;
+            color: white;
+        }
+
+        /* --- About Us --- */
+        .about {
+            padding: 100px 0;
+            background-color: #fff;
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .about-image-placeholder {
+            flex: 1;
+            width: 100%;
+            height: 450px;
+            background-color: transparent;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .about-image-placeholder img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h2 {
+            font-size: 2.8rem;
+            margin-bottom: 25px;
+            color: #914547;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+        }
+
+        /* --- Services --- */
+        .services {
+            padding: 100px 0;
+            background-color: #f4f0e8;
+            text-align: center;
+        }
+
+        .services h2 {
+            font-size: 2.8rem;
+            margin-bottom: 50px;
+            color: #914547;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .service-card {
+            background-color: #fff;
+            padding: 40px 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            background-color: #f7d7c4;
+            border-radius: 50%;
+            margin: 0 auto 25px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .service-icon img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .service-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: #4a2f20;
+        }
+
+        .service-card p {
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        /* --- Testimonials --- */
+        .testimonials {
+            padding: 100px 0;
+            background-color: #fff;
+        }
+
+        .testimonials h2 {
+            font-size: 2.8rem;
+            margin-bottom: 50px;
+            text-align: center;
+            color: #914547;
+        }
+
+        .testimonials-slider {
+            /* You'll likely need JavaScript for a slider */
+        }
+
+        .testimonial {
+            padding: 30px;
+            border-radius: 10px;
+            background-color: #f4f0e8;
+            box-shadow: 0 5px 12px rgba(0, 0, 0, 0.1);
+            font-style: italic;
+            margin-bottom: 30px;
+        }
+
+        .testimonial-author {
+            margin-top: 20px;
+            font-weight: bold;
+            color: #4a2f20;
+            text-align: right;
+        }
+
+        /* --- Locations --- */
+        .locations {
+            padding: 100px 0;
+            background-color: #f4f0e8;
+        }
+
+        .locations h2 {
+            font-size: 2.8rem;
+            margin-bottom: 50px;
+            text-align: center;
+            color: #914547;
+        }
+
+        .locations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .location-card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 5px 12px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .location-card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .location-image-placeholder {
+            width: 100%;
+            height: 250px;
+            background-color: transparent;
+            margin-bottom: 0;
+        }
+        .location-image-placeholder img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .location-info {
+            padding: 30px;
+        }
+
+        .location-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #4a2f20;
+        }
+
+        .location-info p {
+            margin-bottom: 15px;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: #4a2f20;
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        footer h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+        }
+
+        footer form {
+            max-width: 500px;
+            margin: 0 auto 30px;
+        }
+
+        footer input,
+        footer textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        footer button[type="submit"] {
+            width: auto;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container header-content">
+            <div class="logo-placeholder">Logo Placeholder</div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#services">Our Services</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#locations">Locations</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>Compassionate Mental Health Care in Lafayette & Durango</h1>
+            <p>Metis Center offers personalized therapy, medication management, and psychological testing under one roof.</p>
+            <a href="#contact" class="cta-button">Schedule a Consultation</a>
+            <a href="#services" class="cta-button secondary">Explore Our Services</a>
+        </div>
+    </section>
+
+    <section class="about">
+        <div class="container about-content">
+            <div class="about-image-placeholder">
+                <img src="https://images.unsplash.com/photo-1605883705982-75875698054f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1NjIzMDV8MHwxfHNlYXJjaHw0fHxwYXN0b3JhbHxlbnwwfHx8fDE3MTIwNzY3MTh8MA&ixlib=rb-4.0.3&q=80&w=1080" alt="About Us">
+            </div>
+            <div class="about-text">
+                <h2>Why Choose Metis Center?</h2>
+                <p>We understand that seeking mental health support can be a difficult step. At Metis Center, we provide a warm, welcoming, and non-judgmental environment where you can feel safe and supported on your journey to healing and well-being.</p>
+                <p>Our team of highly qualified and compassionate therapists, psychologists, and psychiatric nurse practitioners are dedicated to providing personalized, evidence-based care tailored to your unique needs.</p>
+                <a href="#more-about" class="cta-button">Learn More About Us</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="services">
+        <div class="container">
+            <h2>Our Comprehensive Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <img src="https://images.unsplash.com/photo-1623874514711-0f321325f318?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1NjIzMDV8MHwxfHNlYXJjaHwxMHx8Y291bnNlbGluZ3xlbnwwfHx8fDE3MTIwNzE4MDB8MA&ixlib=rb-4.0.3&q=80&w=1080" alt="Counseling">
+                    </div>
+                    <h3>Counseling & Therapy</h3>
+                    <p>We offer individual, couples, and family therapy to address a wide range of concerns, including anxiety, depression, relationship issues, and life transitions. In-person and online options available.</p>
+                    <a href="#counseling" class="cta-button">Learn More</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <img src="https://images.unsplash.com/photo-1618477388954-7852f32655ec?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1NjIzMDV8MHwxfHNlYXJjaHwzfHxhc3Nlc3NtZW50fGVufDB8fHx8MTcxMjA3MTg1N3ww&ixlib=rb-4.0.3&q=80&w=1080" alt="Assessment">
+                    </div>
+                    <h3>Psychological Assessment</h3>
+                    <p>Our comprehensive assessments, including ADHD and autism testing, provide valuable insights to guide diagnosis and treatment planning.</p>
+                    <a href="#assessment" class="cta-button">Learn More</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+						<img src="https://images.unsplash.com/photo-1621574549346-d5d8c76b7b7d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1NjIzMDV8MHwxfHNlYXJjaHw1fHxtZWRpY2F0aW9ufGVufDB8fHx8MTcxMjA3MTg4Nnww&ixlib=rb-4.0.3&q=80&w=1080" alt="Medication Management">
+					</div>
+                    <h3>Medication Management</h3>
+                    <p>Our psychiatric nurse practitioners work closely with your therapist to provide coordinated medication management, ensuring safe and effective treatment.</p>
+                    <a href="#medication" class="cta-button">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <div class="container">
+            <h2>What Our Clients Say</h2>
+            <div class="testimonials-slider">
+                <div class="testimonial">
+                    <p>"The Metis Center has been a lifesaver for me. My therapist is incredibly supportive and has helped me develop the tools I need to manage my anxiety and live a more fulfilling life."</p>
+                    <p class="testimonial-author">- Sarah M.</p>
+                </div>
+                <div class="testimonial">
+                    <p>"I was hesitant to start therapy, but the team at Metis made me feel comfortable and understood from the very first session. I highly recommend them."</p>
+                    <p class="testimonial-author">- John D.</p>
+                </div>
+                </div>
+        </div>
+    </section>
+
+    <section class="locations">
+        <div class="container">
+            <h2>Our Convenient Locations</h2>
+            <div class="locations-grid">
+                <div class="location-card">
+                    <div class="location-image-placeholder">
+                        <img src="https://images.unsplash.com/photo-1546791755-976d93917f57?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1NjIzMDV8MHwxfHNlYXJjaHwxfHxsYWZheWV0dGUlMjBjb2xvcmFkb3xlbnwwfHx8fDE3MTIwNzI0MzV8MA&ixlib=rb-4.0.3&q=80&w=1080" alt="Lafayette Location">
+                    </div>
+                    <div class="location-info">
+                        <h3>Lafayette, CO</h3>
+                        <p>123 Main Street<br>Lafayette, CO 80026</p>
+                        <p>(555) 123-4567</p>
+                        <a href="#directions-lafayette" class="cta-button">Get Directions</a>
+                    </div>
+                </div>
+                <div class="location-card">
+                    <div class="location-image-placeholder">
+                        <img src="https://images.unsplash.com/photo-1673669952056-2d665b5005d7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1NjIzMDV8MHwxfHNlYXJjaHwxfHxkdXJhbmdvJTIwY29sb3JhZG98ZW58MHx8fHwxNzEyMDcyNDY3fDA&ixlib=rb-4.0.3&q=80&w=1080" alt="Durango Location">
+                    </div>
+                    <div class="location-info">
+                        <h3>Durango, CO</h3>
+                        <p>456 Oak Avenue<br>Durango, CO 81301</p>
+                        <p>(555) 987-6543</p>
+                        <a href="#directions-durango" class="cta-button">Get Directions</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <h2>Ready to Begin Your Journey to Wellness?</h2>
+            <form action="#" method="post">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" placeholder="Your Message" required></textarea>
+                <button type="submit" class="cta-button">Send Message</button>
+            </form>
+            <p>Call us at (555) 555-5555</p>
+            <p>&copy; 2023 Metis Center for Psychological Services</p>
+        </div>
+    </footer>
+
+</body>
+</html>
